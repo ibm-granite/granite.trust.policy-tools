@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Policy Visualization - policy_files</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        h1 { color: #333; }
+        h2 { color: #555; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        .policy-card { background: #f9f9f9; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .mermaid { background: white; padding: 20px; border-radius: 4px; }
+        table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f2f2f2; }
+        details { margin: 10px 0; }
+        summary { cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <h1>Policy Visualization - policy_files</h1>
+    <p><em>Auto-generated from 3 policy files</em></p>
+
+    <h2>Summary</h2>
+    <div class="mermaid">
+    graph TD
+        ROOT[All Policies]
+        ROOT --> G11[Cybersecurity Risks<br/>3 risks]
+        ROOT --> G10[Financial Crimes And Illegal Trading<br/>9 risks]
+        ROOT --> G3[Private Information<br/>6 risks]
+    </div>
+
+    <h2>Individual Policies</h2>
+    <div class="policy-card">
+        <h3>3. Private Information</h3>
+        <p><em>Requests for any information relating to an identified or identifiable individual including home addresses, phone number, bank accounts, biometric data, credit card information, and other personal information</em></p>
+        <p><strong>File:</strong> <code>private_information.yaml</code> | <strong>Risks:</strong> 6</p>
+        <div class="mermaid">
+        graph LR
+            G3[Private Information]
+            G3 --> R3_1[Private Information Personal Identifiable Infor...]
+            G3 --> R3_2[Private Information Medical Records]
+            G3 --> R3_3[Private Information Biometric Data]
+            G3 --> R3_4[Private Information Education Records]
+            G3 --> R3_5[Private Information Finacial Records]
+            G3 --> R3_6[Private Information Life Information]
+        </div>
+        <details>
+            <summary>Policy Details</summary>
+            <table>
+                <tr><th>Risk ID</th><th>Risk Name</th><th>Response Type</th><th>Exception</th></tr>
+                <tr><td>3.1</td><td>Private Information Personal Identifiable Information</td><td>EXPLICIT_REFUSAL</td><td>PI_INCIDENT_EXCEPTION</td></tr>
+                <tr><td>3.2</td><td>Private Information Medical Records</td><td>EXPLICIT_REFUSAL</td><td>PI_INCIDENT_EXCEPTION</td></tr>
+                <tr><td>3.3</td><td>Private Information Biometric Data</td><td>EXPLICIT_REFUSAL</td><td>PI_INCIDENT_EXCEPTION</td></tr>
+                <tr><td>3.4</td><td>Private Information Education Records</td><td>EXPLICIT_REFUSAL</td><td>PI_INCIDENT_EXCEPTION</td></tr>
+                <tr><td>3.5</td><td>Private Information Finacial Records</td><td>EXPLICIT_REFUSAL</td><td>PI_INCIDENT_EXCEPTION</td></tr>
+                <tr><td>3.6</td><td>Private Information Life Information</td><td>EXPLICIT_REFUSAL</td><td>PI_INCIDENT_EXCEPTION</td></tr>
+            </table>
+        </details>
+    </div>
+    <div class="policy-card">
+        <h3>10. Financial Crimes And Illegal Trading</h3>
+        <p><em>Requests aiming to obtain information to commit financial crimes such as money laundering, insider trading, stock market manipulation, corruption, insurance fraud, among others.</em></p>
+        <p><strong>File:</strong> <code>financial_crimes_and_illegal_trading.yaml</code> | <strong>Risks:</strong> 9</p>
+        <div class="mermaid">
+        graph LR
+            G10[Financial Crimes And Illegal Trading]
+            G10 --> R10_1[Money Laundering]
+            G10 --> R10_2[General Financial Fraud]
+            G10 --> R10_3[Tax Evasion]
+            G10 --> R10_4[Insider Trading]
+            G10 --> R10_5[Stock Market Manipulation]
+            G10 --> R10_6[Bribery]
+            G10 --> R10_7[Corruption]
+            G10 --> R10_8[Embezzlement]
+            G10 --> R10_9[Insurance Fraud]
+        </div>
+        <details>
+            <summary>Policy Details</summary>
+            <table>
+                <tr><th>Risk ID</th><th>Risk Name</th><th>Response Type</th><th>Exception</th></tr>
+                <tr><td>10.1</td><td>Money Laundering</td><td>EXPLICIT_REFUSAL</td><td>FINANCIAL_CRIME_EXCEPTION</td></tr>
+                <tr><td>10.2</td><td>General Financial Fraud</td><td>EXPLICIT_REFUSAL</td><td>FINANCIAL_CRIME_EXCEPTION</td></tr>
+                <tr><td>10.3</td><td>Tax Evasion</td><td>EXPLICIT_REFUSAL</td><td>FINANCIAL_CRIME_EXCEPTION</td></tr>
+                <tr><td>10.4</td><td>Insider Trading</td><td>EXPLICIT_REFUSAL</td><td>FINANCIAL_CRIME_EXCEPTION</td></tr>
+                <tr><td>10.5</td><td>Stock Market Manipulation</td><td>EXPLICIT_REFUSAL</td><td>FINANCIAL_CRIME_EXCEPTION</td></tr>
+                <tr><td>10.6</td><td>Bribery</td><td>EXPLICIT_REFUSAL</td><td>FINANCIAL_CRIME_EXCEPTION</td></tr>
+                <tr><td>10.7</td><td>Corruption</td><td>EXPLICIT_REFUSAL</td><td>FINANCIAL_CRIME_EXCEPTION</td></tr>
+                <tr><td>10.8</td><td>Embezzlement</td><td>EXPLICIT_REFUSAL</td><td>FINANCIAL_CRIME_EXCEPTION</td></tr>
+                <tr><td>10.9</td><td>Insurance Fraud</td><td>EXPLICIT_REFUSAL</td><td>FINANCIAL_CRIME_EXCEPTION</td></tr>
+            </table>
+        </details>
+    </div>
+    <div class="policy-card">
+        <h3>11. Cybersecurity Risks</h3>
+        <p><em>Requests that aim to generate content that may serve an attacker to carry cybersecurity attacks such as learning how to run known exploits, write span emails, or create cybersecurity incidents for critical applications such as the energy sector</em></p>
+        <p><strong>File:</strong> <code>cybersecurity_risks.yaml</code> | <strong>Risks:</strong> 3</p>
+        <div class="mermaid">
+        graph LR
+            G11[Cybersecurity Risks]
+            G11 --> R11_1[Spam Phishing Sextortion Campaigns]
+            G11 --> R11_2[Cyber Security Exploits]
+            G11 --> R11_3[Cyberattacks On Energy Infrastructure]
+        </div>
+        <details>
+            <summary>Policy Details</summary>
+            <table>
+                <tr><th>Risk ID</th><th>Risk Name</th><th>Response Type</th><th>Exception</th></tr>
+                <tr><td>11.1</td><td>Spam Phishing Sextortion Campaigns</td><td>EXPLICIT_REFUSAL</td><td>CYBERSECURITY_EXPLOIT_EXCEPTION</td></tr>
+                <tr><td>11.2</td><td>Cyber Security Exploits</td><td>EXPLICIT_REFUSAL</td><td>CYBERSECURITY_EXPLOIT_EXCEPTION</td></tr>
+                <tr><td>11.3</td><td>Cyberattacks On Energy Infrastructure</td><td>EXPLICIT_REFUSAL</td><td>VIOLENCE_EXCEPTION</td></tr>
+            </table>
+        </details>
+    </div>
+</body>
+</html>
