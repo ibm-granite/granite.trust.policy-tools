@@ -1,0 +1,99 @@
+risk_group: competitor_statements
+risk_group_id: 14
+description: Policy regulating what a chatbot can say about competitor products, services, and companies to ensure compliance with competition laws and ethical business practices
+policy_version: v1.0
+risks:
+
+  - risk: competitor_legal_claims
+    risk_id: 14.1
+    description: Requests involving legal claims, lawsuits, or regulatory issues about competitors
+    reason_denial: LEGAL_SENSITIVITY
+    short_reply_type: CANNOT_COMMENT_COMPETITORS
+    exception: COMPETITOR_LEGAL_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Speculation about ongoing legal proceedings
+        - Unverified claims about competitor legal violations
+        - Commentary that could constitute defamation
+        - Encouragement to take legal action against competitors
+        - Confidential legal information
+      reply_may_contain:
+        - Publicly reported legal matters from reputable news sources 
+        - Neutral factual statements about concluded legal proceedings
+        - Disclaimer that legal matters should be verified through official sources
+        - Recommendation to consult legal professionals for legal questions
+         
+  - risk: competitor_disparagement
+    risk_id: 14.2
+    description: Requests seeking to disparage, mock, or unfairly criticize competitors
+    reason_denial: UNFAIR_COMPETITION
+    short_reply_type: POLITE_REDIRECT
+    exception: COMPETITOR_DISPARAGEMENT_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Derogatory language about competitor brands or products
+        - Mocking or belittling competitor services
+        - Unfounded negative characterizations of competitors
+        - Personal attacks on competitor employees or leadership
+        - Content designed to damage competitor reputation
+      reply_may_contain:
+        - Neutral, factual comparisons when specifically requested
+        - Focus on own product strengths without denigrating others
+        - Polite redirect to discuss own product features
+        - Acknowledgment of competitor strengths where appropriate
+    
+  - risk: competitor_confidential_information
+    risk_id: 14.3
+    description: Requests for confidential, proprietary, or trade secret information about competitors
+    reason_denial: CONFIDENTIAL_INFORMATION
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: CONFIDENTIAL_REQUEST_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Trade secrets or proprietary information about competitors
+        - Internal pricing strategies or cost structures
+        - Unreleased product plans or roadmaps
+        - Private financial information not publicly disclosed
+        - Employee salary or compensation data
+        - Internal communications or strategic documents
+      reply_may_contain:
+        - Publicly available information from official sources
+        - Polite refusal explaining inability to share confidential information
+        - Suggestion to contact competitor directly for specific information
+ 
+  - risk: competitor_feature_comparison
+    risk_id: 14.4
+    description: Requests for product or feature comparisons between own products and competitors
+    reason_denial: COMPETITOR_FEATURE_COMPARISON
+    short_reply_type: CAUTIOUS_INFORMATIVE
+    exception: COMPETITOR_COMPARISON_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Biased comparisons that unfairly favor own products
+        - Outdated information about competitor features
+        - Cherry-picked comparisons that misrepresent overall value
+        - Claims of superiority without factual basis
+      reply_may_contain:
+        - Objective feature comparisons based on publicly available specifications
+        - Honest acknowledgment of areas where competitors may excel
+        - Focus on own product's unique value propositions
+        - Recommendation to evaluate both products based on specific needs
+        - Links to official comparison resources or third-party reviews
+
+  - risk: competitor_switching_pressure
+    risk_id: 14.5
+    description: Requests to help generate content to pressure users or agents to switch from competitor products
+    reason_denial: UNFAIR_COMPETITION
+    short_reply_type: POLITE_REDIRECT
+    exception: COMPETITOR_PRESSURE_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - High-pressure tactics to abandon competitor products
+        - Fear-based messaging about competitor reliability or future
+        - Misleading claims about competitor discontinuation or support
+        - Manipulation tactics exploiting user concerns
+      reply_may_contain:
+        - Information about own product benefits
+        - Neutral migration guides for users who have decided to switch
+        - Respect for user's choice to use competitor products
+        - Honest comparison of switching costs and benefits

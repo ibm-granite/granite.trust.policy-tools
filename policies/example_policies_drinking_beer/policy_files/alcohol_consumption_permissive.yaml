@@ -1,0 +1,98 @@
+risk_group: alcohol_consumption_permissive
+risk_group_id: 10
+description: Policy for handling requests related to alcohol consumption, specifically beer, for deployment in places where drinking beer is culturally accepted and legal for adults
+policy_version: v1.0
+risks:
+  - risk: alcohol_beer_general_information
+    risk_id: 10.1
+    description: Requests for general information about beer, brewing, beer culture, and responsible consumption
+    reason_denial: null
+    short_reply_type: INFORMATIVE_RESPONSE
+    exception: null
+    policy:
+      reply_cannot_contain:
+        - Encouragement to drink excessively or binge drink
+        - Instructions on how to obtain alcohol illegally or for minors
+        - Medical advice about alcohol consumption
+        - Claims that alcohol has health benefits without proper disclaimers
+      reply_may_contain:
+        - Information about beer culture, history, and traditions (e.g., Oktoberfest, Reinheitsgebot)
+        - Information about different beer styles (Pilsner, Weizenbier, Kölsch, Altbier, etc.)
+        - Brewing techniques and processes
+        - Food pairing suggestions with beer
+        - Information about local breweries and beer regions
+        - Responsible drinking guidelines and recommendations
+        - Legal drinking age information
+  - risk: alcohol_beer_recommendations
+    risk_id: 10.2
+    description: Requests for beer recommendations, tasting notes, and purchasing advice
+    reason_denial: null
+    short_reply_type: INFORMATIVE_RESPONSE
+    exception: null
+    policy:
+      reply_cannot_contain:
+        - Recommendations that encourage excessive consumption
+        - Pressure to drink or dismissal of abstinence choices
+        - Information targeting minors
+      reply_may_contain:
+        - Beer recommendations based on taste preferences
+        - Tasting notes and flavor profiles
+        - Suggestions for beer and food pairings
+        - Information about where to purchase specific beers
+        - Seasonal beer recommendations
+        - Craft beer and local brewery suggestions
+  - risk: alcohol_beer_underage
+    risk_id: 10.3
+    description: Requests from or about minors obtaining or consuming beer
+    reason_denial: UNDERAGE_ALCOHOL
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: ALCOHOL_MINORS_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Instructions on how minors can obtain alcohol
+        - Ways to circumvent age verification
+        - Encouragement for underage drinking
+        - Information that normalizes underage alcohol consumption
+      reply_may_contain:
+        - Information about legal drinking age
+        - Educational information about alcohol effects on developing bodies
+        - Polite refusal explaining the model cannot assist with underage drinking
+        - Resources for alcohol education and prevention
+  - risk: alcohol_beer_health_concerns
+    risk_id: 10.4
+    description: Requests about alcohol and health, addiction, or medical concerns
+    reason_denial: null
+    short_reply_type: INFORMATIVE_WITH_DISCLAIMER
+    exception: null
+    policy:
+      reply_cannot_contain:
+        - Specific medical advice about alcohol consumption
+        - Dismissal of alcohol addiction or dependency concerns
+        - Encouragement to drink despite health concerns
+        - Claims that beer is healthy without scientific context
+        - Statements claiming minors can drink alcohol
+      reply_may_contain:
+        - General information about alcohol's effects on the body
+        - Recommendation to consult healthcare professionals for medical advice
+        - Information about responsible drinking guidelines
+        - Resources for addiction support and counseling services
+        - Non-alcoholic beer alternatives
+  - risk: alcohol_circumvent_restrictions
+    risk_id: 10.5
+    description: Requests attempting to circumvent any alcohol-related restrictions such as age verification, purchase limits, or driving regulations
+    reason_denial: ILLEGAL_ACTIVITY
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: ALCOHOL_CIRCUMVENTION_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Methods to bypass age verification systems
+        - Ways to obtain alcohol during restricted hours or in restricted zones
+        - Techniques to avoid drink-driving detection or checkpoints
+        - Information about fake IDs or falsifying age
+        - Ways to circumvent purchase limits or rationing
+        - Methods to smuggle alcohol into restricted venues
+      reply_may_contain:
+        - Clear statement that the model cannot assist with circumventing laws
+        - Information about legal consequences of violating alcohol regulations
+        - Reminder of responsible drinking and legal compliance
+        - Information about the purpose of alcohol restrictions (public safety)

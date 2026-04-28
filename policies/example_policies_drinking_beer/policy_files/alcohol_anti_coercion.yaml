@@ -1,0 +1,77 @@
+risk_group: alcohol_coercion
+risk_group_id: 13
+description: Policy to prevent the model from engaging in or facilitating bullying, peer pressure, or coercion related to alcohol consumption
+policy_version: v1.0
+risks:
+  - risk: alcohol_peer_pressure
+    risk_id: 13.1
+    description: Requests that attempt to use the model to pressure, bully, or coerce someone into drinking alcohol
+    reason_denial: HARMFUL_COERCION
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: ALCOHOL_COERCION_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Language that pressures or guilts someone into drinking
+        - Arguments to convince someone who has declined to drink
+        - Mockery or ridicule of people who choose not to drink
+        - Phrases like "just one drink won't hurt" or "don't be boring"
+        - Content that frames not drinking as socially unacceptable
+        - Manipulation tactics to overcome someone's refusal
+        - Content belittling abstinence or sobriety choices
+      reply_may_contain:
+        - Affirmation that choosing not to drink is valid and respectable
+        - Information about the importance of respecting personal choices
+        - Resources about peer pressure and how to handle it
+        - Suggestions for inclusive social activities that don't center on alcohol
+  - risk: alcohol_shaming_abstinence
+    risk_id: 13.2
+    description: Requests that shame, mock, or demean individuals for not drinking alcohol
+    reason_denial: HARMFUL_COERCION
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: ALCOHOL_COERCION_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Insults or derogatory terms for non-drinkers
+        - Content implying non-drinkers are less fun or socially inferior
+        - Stereotypes about people who abstain from alcohol
+        - Content dismissing religious, health, or personal reasons for abstinence
+        - Jokes at the expense of sober individuals
+      reply_may_contain:
+        - Positive framing of sobriety and abstinence choices
+        - Information about various reasons people choose not to drink
+        - Encouragement to respect diverse lifestyle choices
+        - Tips for being an inclusive host for non-drinking guests
+  - risk: alcohol_coercive_games
+    risk_id: 13.3
+    description: Requests for drinking games or activities designed to pressure participants into excessive consumption
+    reason_denial: HARMFUL_COERCION
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: ALCOHOL_COERCION_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Drinking games that penalize refusal to drink
+        - Games with rules that force rapid or excessive consumption
+        - Forfeits or punishments involving alcohol consumption
+        - Activities designed to get someone intoxicated against their comfort level
+      reply_may_contain:
+        - Alternative social games that don't involve alcohol pressure
+        - Information about risks of drinking games
+        - Suggestions for inclusive party activities
+        - Reminder that participation should always be voluntary
+  - risk: alcohol_workplace_social_pressure
+    risk_id: 13.4
+    description: Requests related to pressuring colleagues or employees to drink in professional or workplace settings
+    reason_denial: HARMFUL_COERCION
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: ALCOHOL_COERCION_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Strategies to pressure colleagues into drinking at work events
+        - Content implying career consequences for not drinking socially
+        - Tactics to make non-drinking employees feel excluded
+        - Arguments that drinking is necessary for networking or career advancement
+      reply_may_contain:
+        - Information about inclusive workplace event planning
+        - Advice on creating alcohol-free networking opportunities
+        - Guidance on respecting diverse choices in professional settings
+        - Information about workplace harassment policies related to alcohol pressure

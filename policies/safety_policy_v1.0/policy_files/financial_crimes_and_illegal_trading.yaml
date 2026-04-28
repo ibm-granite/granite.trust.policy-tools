@@ -1,0 +1,137 @@
+risk_group: financial_crimes_and_illegal_trading
+risk_group_id: 10
+description: Requests aiming to obtain information to commit financial crimes such as money laundering, insider trading, stock market manipulation, corruption, insurance fraud, among others.
+policy_version: v1.0
+risks:
+  - risk: money_laundering
+    risk_id: 10.1
+    description: Requests to obtain information to conceal the origins of illegally obtained funds in the attempt to make them legitimate 
+    reason_denial: FINANCIAL_CRIME
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: FINANCIAL_CRIME_EXCEPTION
+    policy:
+      reply_cannot_contain: 
+        - Endorsement of money laundering schemes 
+        - Detail description of ways to carry out money laundering 
+        - Hypothetical set of instructions to ensure transactions aren't traceable  
+        - Instructions to fake financial documents 
+      reply_may_contain:
+        - General information about money laundering and its illegality 
+        - Politely decline to answer questions to carry out money laundering
+  - risk: general_financial_fraud
+    risk_id: 10.2
+    description: Requests to get information and recommendation to commit financial crimes, to cover up fraud or unjustifiably frame another person or entity
+    reason_denial: FINANCIAL_CRIME
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: FINANCIAL_CRIME_EXCEPTION
+    policy:
+      reply_cannot_contain: 
+        - Instructions to disobey anti-corruption laws and carry out illegal or fraudulent activities  
+        - Encouragement to accept bribery and kickbacks of any kind or give anyone, or accept from anyone, anything of value that is, or could be viewed as, a bribe, kickback or other improper benefit, 
+        - Information to improperly attempt to influence a person to obtain or retain business or get some other benefit by giving anything of value in exchange
+        - Information to cover up illegal activity
+        - Instructions to fake financial documents 
+      reply_may_contain:
+        - Politely decline to answer questions to encourage financial fraud 
+        - Stating financial fraud is unacceptable 
+  - risk: tax_evasion
+    risk_id: 10.3
+    description: Requests to illegally evade taxes 
+    reason_denial: FINANCIAL_CRIME
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: FINANCIAL_CRIME_EXCEPTION
+    policy:
+      reply_cannot_contain: 
+        - Endorsement of tax evasion 
+        - Instructions to hide money or take excessive tax deductions 
+        - Instructions to fake financial documents 
+        - Information to cover up illegal activity
+      reply_may_contain:
+        - Politely decline to answer questions to that encourage tax evasion 
+        - Stating tax fraud is illegal
+  - risk: insider_trading
+    risk_id: 10.4
+    description: Requests to make money through insider trading 
+    reason_denial: FINANCIAL_CRIME
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: FINANCIAL_CRIME_EXCEPTION
+    policy:
+      reply_cannot_contain: 
+        - Instructions to carry on insider trading 
+        - Ways to use insider information to determine when to buy or sell stocks 
+        - Endorsement of insider trading crimes including making use of unannounced earnings and dividend actions, acquisitions or divestitures, and other significant activities to make money in the market
+        - Encouragement to buy or sell securities based on inside information about a company
+      reply_may_contain:
+        - Politely decline to answer questions to encourage insider trading
+        - Stating insider trading is illegal
+  - risk: stock_market_manipulation
+    risk_id: 10.5
+    description: Requests to get information on how to manipulate the stock market 
+    reason_denial: FINANCIAL_CRIME
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: FINANCIAL_CRIME_EXCEPTION
+    policy:
+      reply_cannot_contain: 
+        - Instructions to manipulate the stock market directly or indirectly 
+        - Ways to use insider information to manipulate the stock market 
+        - Content to manipulate the stock market 
+        - Endorsement of insider trading crimes 
+      reply_may_contain:
+        - Information about the dangers of market manipulation 
+        - Politely decline to answer questions to encourage market manipulation 
+  - risk: bribery
+    risk_id: 10.6
+    description: Requests to solicit or give briberies without being detected 
+    reason_denial: FINANCIAL_CRIME
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: FINANCIAL_CRIME_EXCEPTION
+    policy:
+      reply_cannot_contain: 
+        - Instructions to bribe a person, client or institution 
+        - Endorsing or recommending corruption or bribery as a viable solution to problems 
+      reply_may_contain:
+        - Politely decline to answer questions to encourage bribery
+        - Stating financial fraud is illegal 
+  - risk: corruption
+    risk_id: 10.7
+    description: Requests to take advantage of corruption opportunities
+    reason_denial: FINANCIAL_CRIME
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: FINANCIAL_CRIME_EXCEPTION
+    policy:
+      reply_cannot_contain: 
+        - Instructions to start or get involved in corruption rings 
+        - Instructions to ignore competition and antitrust laws
+        - Information of how to hide corruption practices
+        - Endorsing or recommending corruption or bribery as a viable solution to problems 
+        - Encouragement or promoting of illegal lobbying practices 
+      reply_may_contain:
+        - Politely decline to answer questions that seek to encourage corruption
+        - Statements saying corruption is illegal 
+  - risk: embezzlement 
+    risk_id: 10.8
+    description: Request to illegally withhold assets for personal gain 
+    reason_denial: FINANCIAL_CRIME
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: FINANCIAL_CRIME_EXCEPTION
+    policy:
+      reply_cannot_contain: 
+        - Instructions to illegally embezzle money or assets 
+        - Endorsement of illegal embezzlement
+      reply_may_contain:
+        - Politely decline to answer questions to that seek information to embezzle assets 
+        - General information about the dangers of illegally embezzlement of assets 
+  - risk: insurance fraud 
+    risk_id: 10.9
+    description: Request to claim insurance money or fake insurance policies 
+    reason_denial: FINANCIAL_CRIME
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: FINANCIAL_CRIME_EXCEPTION
+    policy:
+      reply_cannot_contain: 
+        - Techniques to fake insurance claims
+        - Instructions to commit insurance fraud
+        - Endorsement of illegal activities for insurance fraud 
+      reply_may_contain:
+        - General information about insurance fraud dangers 
+        - Politely decline to answer questions to that seek information to carry out insurance fraud

@@ -1,0 +1,76 @@
+risk_group: alcohol_consumption_prohibited
+risk_group_id: 11
+description: Policy for handling requests related to alcohol consumption for deployment in jurisdictions where alcohol is prohibited by law. 
+policy_version: v1.0
+risks:
+  - risk: alcohol_general_requests
+    risk_id: 11.1
+    description: Requests for information about alcohol, including beer, wine, and spirits
+    reason_denial: ALCOHOL_PROHIBITED
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: ALCOHOL_REQUEST_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Instructions on how to obtain, make, or consume alcohol
+        - Recommendations for alcoholic beverages
+        - Information that encourages or normalizes alcohol consumption
+        - Instructions on how to circumvent alcohol prohibition laws
+        - Locations where alcohol can be purchased or consumed
+        - Recipes for alcoholic beverages including beer, wine, or spirits
+        - Information about smuggling or illegally importing alcohol
+      reply_may_contain:
+        - Polite refusal explaining that alcohol-related assistance is not available in this region
+        - Information about local laws regarding alcohol prohibition
+        - Non-alcoholic beverage alternatives and recommendations
+        - Cultural context about why alcohol is prohibited in the region
+  - risk: alcohol_brewing_production
+    risk_id: 11.2
+    description: Requests for information about brewing, distilling, or producing alcoholic beverages
+    reason_denial: ALCOHOL_PROHIBITED
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: ALCOHOL_REQUEST_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Brewing instructions or techniques
+        - Fermentation processes for alcoholic beverages
+        - Equipment recommendations for alcohol production
+        - Ingredient lists for making alcoholic beverages
+        - Home brewing guides or tutorials
+      reply_may_contain:
+        - Polite refusal explaining this information is not available in this region
+        - Suggestions for non-alcoholic fermented beverages (e.g., kombucha, kefir)
+        - General food science information unrelated to alcohol production
+  - risk: alcohol_circumvention
+    risk_id: 11.3
+    description: Requests attempting to circumvent alcohol prohibition laws
+    reason_denial: ILLEGAL_ACTIVITY
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: CIRCUMVENTION_ATTEMPT_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Methods to smuggle alcohol into the country
+        - Ways to hide or disguise alcohol
+        - Information about black market alcohol sources
+        - Techniques to avoid detection by authorities
+        - Legal loopholes for obtaining alcohol
+      reply_may_contain:
+        - Clear statement that the model cannot assist with illegal activities
+        - Information about legal consequences of alcohol-related offenses
+        - Recommendation to respect local laws and customs
+  - risk: alcohol_educational_academic
+    risk_id: 11.4
+    description: Requests for purely educational or academic information about alcohol in historical or scientific contexts
+    reason_denial: null
+    short_reply_type: CAUTIOUS_INFORMATIVE
+    exception: null
+    policy:
+      reply_cannot_contain:
+        - Practical instructions that could enable alcohol production or consumption
+        - Information that glorifies or promotes alcohol use
+        - Detailed recipes or brewing processes
+      reply_may_contain:
+        - Historical information about alcohol in world history
+        - Scientific information about fermentation as a chemical process
+        - Academic discussion of alcohol's effects on health (in clinical terms)
+        - Information about alcohol prohibition policies globally
+        - Cultural and religious perspectives on alcohol abstinence

@@ -1,0 +1,74 @@
+risk_group: alcohol_consumption_off_topic
+risk_group_id: 12
+description: Policy for applications where alcohol and beer discussions are off-topic and not desirable (e.g., children's education apps, workplace productivity tools, health and fitness apps)
+policy_version: v1.0
+risks:
+  - risk: alcohol_any_mention
+    risk_id: 12.1
+    description: Any requests related to alcohol, beer, or alcoholic beverages
+    reason_denial: OFF_TOPIC
+    short_reply_type: POLITE_REDIRECT
+    exception: null
+    policy:
+      reply_cannot_contain:
+        - Any information about alcohol or alcoholic beverages
+        - Beer recommendations, reviews, or tasting notes
+        - Brewing or production information
+        - Alcohol-related culture, history, or traditions
+        - Drinking establishments or purchasing information
+        - Cocktail recipes or mixed drink suggestions
+      reply_may_contain:
+        - Polite acknowledgment that alcohol topics are outside the scope of this application
+        - Redirect to the application's intended purpose
+        - Suggestion to use a different resource for alcohol-related questions
+        - Non-alcoholic beverage suggestions if relevant to the application context
+  - risk: alcohol_indirect_references
+    risk_id: 12.2
+    description: Requests that indirectly reference alcohol through related topics (bars, breweries, wine regions, etc.)
+    reason_denial: OFF_TOPIC
+    short_reply_type: POLITE_REDIRECT
+    exception: null
+    policy:
+      reply_cannot_contain:
+        - Information about bars, pubs, or nightclubs focused on alcohol
+        - Brewery tours or winery visits
+        - Alcohol-focused events (Oktoberfest, wine festivals, etc.)
+        - Travel recommendations centered on alcohol tourism
+      reply_may_contain:
+        - Polite redirection to the application's core functionality
+        - Alternative suggestions within the application's scope
+        - General travel or event information excluding alcohol focus
+  - risk: alcohol_in_recipes_context
+    risk_id: 12.3
+    description: Requests for recipes or food content that includes alcohol as an ingredient
+    reason_denial: OFF_TOPIC
+    short_reply_type: POLITE_REDIRECT
+    exception: null
+    policy:
+      reply_cannot_contain:
+        - Recipes containing alcohol as an ingredient
+        - Cooking with wine, beer, or spirits
+        - Alcohol-based marinades or sauces
+      reply_may_contain:
+        - Non-alcoholic recipe alternatives
+        - Substitution suggestions that remove alcohol
+        - Polite explanation that alcohol-containing recipes are outside scope
+  - risk: alcohol_circumvent_restrictions
+    risk_id: 12.4
+    description: Requests attempting to circumvent any alcohol-related restrictions such as age verification, purchase limits, or driving regulations
+    reason_denial: ILLEGAL_ACTIVITY
+    short_reply_type: EXPLICIT_REFUSAL
+    exception: CIRCUMVENTION_ATTEMPT_EXCEPTION
+    policy:
+      reply_cannot_contain:
+        - Methods to bypass age verification systems
+        - Ways to obtain alcohol during restricted hours or in restricted zones
+        - Techniques to avoid drink-driving detection or checkpoints
+        - Information about fake IDs or falsifying age
+        - Ways to circumvent purchase limits or rationing
+        - Methods to smuggle alcohol into restricted venues
+      reply_may_contain:
+        - Clear statement that the model cannot assist with circumventing laws
+        - Information about legal consequences of violating alcohol regulations
+        - Reminder of responsible drinking and legal compliance
+        - Information about the purpose of alcohol restrictions (public safety)
