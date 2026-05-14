@@ -41,6 +41,14 @@ risks:
 A good starting point is to clone the repo, look at the set of sample policies, and try out the tools.
 Check our [tutorials](./notebooks/README.md) to get started.
 
+
+- [Tutorial 1: Exploring the Policy Format](./exploring_policy_format.ipynb) - Learn how to create policy YAML files
+- [Tutorial 2: Policy Variability](./exploring_policy_variability.ipynb) - Understand how context affects policies
+- [Tutorial 3: Generate synthetic data](./generate_synthetic_data_with_fms_dgt.ipynb) - Use DGT to generate synthetic data that follows the policy definition
+- [Tutorial 4: Enforce policy with Granite Guardian 4.1 ](./guardian_enforcement.ipynb) - Learn how to enforce your policy using the new *bring your own criteria* functionality of Granite Guardian 
+
+Check our scripts folder for additional functionality: 
+
 ```bash
 # Visualize all sample policies
 python3 scripts/visualize_policies.py policies/safety_policy_v1.0/policy_files/

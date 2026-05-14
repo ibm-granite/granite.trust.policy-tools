@@ -58,3 +58,8 @@ graph LR;
 ```
 
 This tutorial covers the 5-stage pipeline: instruction generation, deduplication, Guardian validation, response generation, and final filtering. 
+
+
+### Tutorial 4 - Enforce Policies Using Granite Guardian 4.1
+Policies need enforcement. Check how we enforce them using Granite Guardian [link](../notebooks/guardian_enforcement.ipynb)
+

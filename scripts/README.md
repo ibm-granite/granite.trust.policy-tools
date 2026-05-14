@@ -176,3 +176,147 @@ The report includes:
 - **Conflicts** - Items where one policy allows what the other forbids
 - **Agreements (forbid)** - Items both policies forbid
 - **Agreements (allow)** - Items both policies allow
+
+---
+
+## policy_to_criteria.py
+
+Convert YAML policy files to Granite Guardian 4.1 criteria format.
+
+### Usage
+
+```bash
+# Output human-readable text
+python3 scripts/policy_to_criteria.py <policy.yaml>
+
+# Output as Python code
+python3 scripts/policy_to_criteria.py <policy.yaml> --python
+
+# Output as JSON
+python3 scripts/policy_to_criteria.py <policy.yaml> --json
+
+# List all risks in a policy
+python3 scripts/policy_to_criteria.py <policy.yaml> --list-risks
+
+# Generate criteria for a specific risk only
+python3 scripts/policy_to_criteria.py <policy.yaml> --risk-id 11.1
+```
+
+### Examples
+
+```bash
+# Generate criteria for alcohol prohibition policy
+python3 scripts/policy_to_criteria.py \
+  policies/example_policies_drinking_beer/policy_files/alcohol_prohibited.yaml
+
+# Export as Python constants
+python3 scripts/policy_to_criteria.py \
+  policies/example_policies_drinking_beer/policy_files/alcohol_prohibited.yaml \
+  --python --output criteria.py
+```
+
+---
+
+## evaluate_conversations.py
+
+Evaluate conversations against a policy using Granite Guardian 4.1. This script loads a policy, generates criteria, and checks whether assistant responses comply with the policy.
+
+### Requirements
+
+```bash
+pip install transformers vllm torch pyyaml
+```
+
+### Usage
+
+```bash
+# Basic evaluation
+python3 scripts/evaluate_conversations.py <policy.yaml> <conversations.json>
+
+# Save results to file
+python3 scripts/evaluate_conversations.py <policy.yaml> <conversations.json> --output results.json
+
+# Use think mode (includes reasoning trace)
+python3 scripts/evaluate_conversations.py <policy.yaml> <conversations.json> --think
+
+# Evaluate against a specific risk only
+python3 scripts/evaluate_conversations.py <policy.yaml> <conversations.json> --risk-id 11.1
+
+# List risks in policy
+python3 scripts/evaluate_conversations.py <policy.yaml> <conversations.json> --list-risks
+
+# Quiet mode (summary only)
+python3 scripts/evaluate_conversations.py <policy.yaml> <conversations.json> --quiet
+```
+
+### Dataset Format
+
+**JSON format:**
+```json
+[
+    {
+        "id": "conv_001",
+        "user": "User message here",
+        "assistant": "Assistant response here"
+    }
+]
+```
+
+**JSONL format:**
+```
+{"id": "conv_001", "user": "User message", "assistant": "Response"}
+{"id": "conv_002", "user": "Another message", "assistant": "Another response"}
+```
+
+### Examples
+
+```bash
+# Evaluate sample conversations against alcohol prohibition policy
+python3 scripts/evaluate_conversations.py \
+  policies/example_policies_drinking_beer/policy_files/alcohol_prohibited.yaml \
+  examples/sample_conversations.json
+
+# Evaluate with think mode and save results
+python3 scripts/evaluate_conversations.py \
+  policies/example_policies_drinking_beer/policy_files/alcohol_prohibited.yaml \
+  examples/sample_conversations.jsonl \
+  --think --output results.json
+
+# Evaluate only against brewing policy (risk 11.2)
+python3 scripts/evaluate_conversations.py \
+  policies/example_policies_drinking_beer/policy_files/alcohol_prohibited.yaml \
+  examples/sample_conversations.json \
+  --risk-id 11.2
+```
+
+### Output
+
+The script outputs:
+- Per-conversation evaluation results showing violations/compliance for each risk
+- Summary statistics (total evaluations, violations, compliance rate)
+- JSON output file (when `--output` specified) with full details including reasoning traces
+
+---
+
+## guardian_enforcement.py
+
+Run policy enforcement test suites using Granite Guardian 4.1. Includes predefined test cases for alcohol prohibition, anti-coercion, and financial crimes policies.
+
+### Usage
+
+```bash
+# Run all demos and test suites
+python3 scripts/guardian_enforcement.py
+
+# Run only alcohol prohibition tests
+python3 scripts/guardian_enforcement.py --test-prohibition
+
+# Run only anti-coercion tests
+python3 scripts/guardian_enforcement.py --test-coercion
+
+# Run only financial crimes tests
+python3 scripts/guardian_enforcement.py --test-financial
+
+# Use think mode (reasoning traces)
+python3 scripts/guardian_enforcement.py --think
+```
