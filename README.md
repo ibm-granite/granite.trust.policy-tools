@@ -98,12 +98,14 @@ If you use this work in your research, please cite:
 
 ```bibtex
 @misc{genai-policy-tools,
-  title={GenAI Policy Tools: Shareable, Actionable Policies for GenAI applications},
+  title={Granite.Trust Policy Tools: Shareable, Actionable Policies for Generative AI Applications},
   publisher={IBM Research},
+  author={Nathalie Baracaldo, Nicolas Mello, Kush R. Varshney, Heiko Ludwig, Kate Soule, David Cox}
   year={2026},
   url={https://github.com/ibm-granite/granite.trust.policy-tools}
 }
 ``` 
+You can find our report: [here](./docs/Granite-Trust-Policy-Tools.pdf)  
 
 ## Disclaimer
 This is not an IBM product. IBM doesn’t endorse the sample policies in this repository.
