@@ -42,10 +42,11 @@ A good starting point is to clone the repo, look at the set of sample policies, 
 Check our [tutorials](./notebooks/README.md) to get started.
 
 
-- [Tutorial 1: Exploring the Policy Format](./exploring_policy_format.ipynb) - Learn how to create policy YAML files
-- [Tutorial 2: Policy Variability](./exploring_policy_variability.ipynb) - Understand how context affects policies
-- [Tutorial 3: Generate synthetic data](./generate_synthetic_data_with_fms_dgt.ipynb) - Use DGT to generate synthetic data that follows the policy definition
-- [Tutorial 4: Enforce policy with Granite Guardian 4.1 ](./guardian_enforcement.ipynb) - Learn how to enforce your policy using the new *bring your own criteria* functionality of Granite Guardian 
+- [Tutorial 1: Exploring the Policy Format](./notebooks//exploring_policy_format.ipynb) - Learn how to create policy YAML files
+- [Tutorial 2: Policy Variability](./notebooks/exploring_policy_variability.ipynb) - Understand how context affects policies
+- [Tutorial 3: Generate synthetic data](./notebooks/generate_synthetic_data_with_fms_dgt.ipynb) - Use DGT to generate synthetic data that follows the policy definition
+- [Tutorial 4: Enforce policy with Granite Guardian 4.1 ](./notebooks/guardian_enforcement.ipynb) - Learn how to enforce your policy using the new *bring your own criteria* functionality of Granite Guardian 
+- [Tutorial 5: Red-team LLMs with ARES](./notebooks/red_team_models_with_ares.ipynb) - Red-team LLMs using ARES with DGT-generated harmful prompts as attack objectives
 
 Check our scripts folder for additional functionality: 
 
